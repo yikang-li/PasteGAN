@@ -1,0 +1,74 @@
+# Log-related settings
+logs:
+  name: paste_gan_coco
+  output_dir: output/
+# data-related settings
+data:
+  dataset: coco
+  data_opts_path: options/data_opts/coco.yaml
+  image_size: [64, 64]
+  build_canvas: true
+# model related settings
+generator:
+  arch: PasteGAN
+  options:
+    embedding_dim: 128
+    # setting for gconv (vec)
+    gconv_dim: 128
+    gconv_hidden_dim: 512
+    gconv_num_layers: 5
+    # settings for 2D gconv
+    transform_residual: True
+    gconv2d_num_layers: 4
+    use_flow_net: True
+    mlp_normalization: none
+    refinement_dims: [1024,512,256,128,64]
+    normalization: batch
+    activation: leakyrelu-0.1
+    last_v: 8
+    # settings for common
+    canvas_noise_dim: 0
+    use_canvas_res: true
+    mask_size: 0
+    class_related_bbox: false
+    crop_matching_loss: True
+    # settings for Crop Encoder
+    crop_encoder:
+      crop_embedding_dim: 128
+      category_aware_encoder: False
+      pooling: avg
+      crop_encoder_kwargs:
+        normalization: batch
+        padding: same
+        activation: leakyrelu-0.1
+        arch: 'C3-64-2,C3-128-2,C3-256-2'
+discriminator:
+  generic:
+    normalization: batch
+    padding: valid
+    activation: leakyrelu-0.1
+  object:
+    arch: 'C4-64-2,C4-128-2,C4-256-2'
+    object_size: 32
+  image:
+    arch: 'C4-64-2,C4-128-2,C4-256-2'
+perceptual:
+  arch: VGGLoss
+optim:
+  # Discriminator Loss Weights
+  d_loss_weight: 0.01
+  d_obj_weight: 1.0
+  d_img_weight: 1.0
+  ac_loss_weight: 0.1
+  # Generator Loss Weights
+  gan_loss_type: 'gan'
+  mask_loss_weight: 0.1
+  use_weighted_l1_loss: true
+  l1_pixel_loss_weight: 1.
+  bbox_pred_loss_weight: 10.
+  # Perceptual Loss
+  perceptual_loss_weight: 1.0
+  obj_perceptual_loss_weight: 0.5
+  double_ploss_weight: 0.5
+  # crop matching loss weight
+  CML_weight: 10.

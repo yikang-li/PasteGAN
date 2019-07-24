@@ -1,0 +1,40 @@
+dataset: coco
+root_dir: data/coco
+images: images
+mem_bank: mem_bank.json
+max_objects_per_image: 10
+use_orphaned_objects: True
+use_object_crops: True
+include_relationships: True
+image_size: [64, 64]
+crop_size: [32, 32]
+
+# COCO-specific options
+coco_train_image_dir: images/train2017
+coco_val_image_dir: images/val2017
+coco_train_instances_json: annotations/instances_train2017.json
+coco_train_stuff_json: annotations/stuff_train2017.json
+coco_val_instances_json: annotations/instances_val2017.json
+coco_val_stuff_json: annotations/stuff_val2017.json
+coco_include_other: False
+min_object_size: 0.02
+min_objects_per_image: 3
+coco_stuff_only: True
+# Set this to 0 to use no masks
+mask_size: 16
+# arguments for output
+image_folder: images
+
+# additional arguments for new version of coco:
+crop_file_csv: objects.csv
+crops_pickle: masked_processed_objects_np16_32.pickle
+retrieve_sampling: coco_x
+crop_num: 1
+num_val_samples: 1024
+crop_image_type: fragment_image
+
+top10_crop_ids: top10_crop_ids_L2.pickle
+val_top10_crop_ids: val_top10_crop_ids_L2.pickle
+
+object_index_mapping: object_index_mapping.pickle
+val_object_index_mapping: val_object_index_mapping.pickle

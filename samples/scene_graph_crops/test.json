@@ -1,0 +1,17 @@
+[
+  {
+    "objects": ["sky", "grass", "elephant"],
+    "relationships": [
+      [0, "above", 1],
+      [2, "standing on", 1]
+    ],
+    "crops": [
+      "sky.png",
+      "grass.png",
+      "elephant.png"
+    ],
+    "boxes": [[ 0.0000,  0.0000,  0.9962,  0.6229],
+      [ 0.0000,  0.6655,  0.9800,  1.0000],
+      [ 0.3274,  0.4197,  0.7950,  0.7751]]
+  }
+]

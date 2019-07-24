@@ -1,0 +1,18 @@
+dataset: visual_genome
+root_dir: data/visual_genome
+images: images
+trainset: train.h5
+valset: val.h5
+vocab: vocab.json
+mem_bank: clean_mem_bank.json
+crops_csv: objects.csv
+crops_pickle: processed_objects_np16_32.pickle
+crop_size: [32, 32]
+crop_num: 1
+max_objects_per_image: 10
+use_orphaned_objects: True
+use_object_crops: True
+include_relationships: True
+retrieve_sampling: vg_x
+top10_crop_ids: top10_crop_ids_L2.pickle
+val_top10_crop_ids: val_top10_crop_ids_L2.pickle
