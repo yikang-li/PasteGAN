@@ -85,7 +85,7 @@ If you find the project useful, please cite:
 @article{li2019pastegan,
   title={PasteGAN: A Semi-Parametric Method to Generate Image from Scene Graph},
   author={Li, Yikang and Ma, Tao and Bai, Yeqi and Duan, Nan and Wei, Sining and Wang, Xiaogang},
-  journal={NeurIPS 2019},
+  journal={NeurIPS},
   year={2019}
 }
 ```
