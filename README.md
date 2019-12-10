@@ -1,7 +1,9 @@
 # PasteGAN: A Semi-Parametric Method to Generate Image from Scene Graph
 
+This is a pytorch project for the paper [**PasteGAN: A Semi-Parametric Method to Generate Image from Scene Graph**](https://papers.nips.cc/paper/8650-pastegan-a-semi-parametric-method-to-generate-image-from-scene-graph.pdf) by Yikang Li, Tao Ma, Yeqi Bai, Nan Duan, Sining Wei and Xiaogang Wang presented at **NeurIPS 2019**.
 
-This is a pytorch project collorative finished by Yikang Li, Tao Ma and Yeqi Bai towards **NeurIPS 2019**.
+<img src="./images/PasteGAN.pdf" width="900px" height="350px"/>
+
 
 ## Project Outline
 
@@ -10,7 +12,7 @@ Here is how the project is arranged and developed:
 	- visualization: functions to visualize the results
 	- common.py: common functions/tools used in the project
 	- ...
-- scripts: Scripts used for data proprocessing / project setup / data downloading
+- scripts: scripts used for data proprocessing / project setup / data downloading
 - models: (commond functions can be placed here and detailed module/models should be place in the correponding folders)
 	- utils: model-related utilities
 	- modules: Basic modules used in the model
@@ -28,6 +30,8 @@ Here is a list of the notations used in the project:
 - **original_crops**: The object crops extracted from the corresponding ground-truth images, playing a role of the source materials of reconstruction.
 - **canvases_sel**: A canvas produced by simply superimposing the selected object crops with the ground-truth bounding boxes together.
 - **canvases_ori**: A canvas produced by simply superimposing the original object crops with the ground-truth bounding boxes together. It is almost the same as ground-truth image if the object annotation is completely marked.
+
+We only use **canvases_sel** and **canvases_ori** for visualizing the training process.
 
 ## Project Setup
 
@@ -53,20 +57,6 @@ Prepare dataset:
 - Download VG Dataset: `sh scripts/download_vg.sh`
 - We advise you to straightly download the required data at [dataset](https://github.com). (The code of dataset preprocessing is under cleaning, we will release the code as soon as possible.)
 
-## Visualize Training Process
-
-The training process is visualized with [tensorboard](https://github.com/yunjey/pytorch-tutorial/blob/master/tutorials/04-utils/tensorboard).
-
-Start the **tensorboard** server:
-```
-tensorboard --logdir='./output' --port=8097
-```
-(Optional) If working on a remote server, mapping the remote tensorboard server to local:
-```
-ssh -N -L localhost:8000:localhost:8097 user@your_remote_server
-```
-Visualize the training process by opening `localhost:8097` (from local)  `localhost:8000` (from remote)
-
 
 ## Some Training Tips
 
@@ -82,10 +72,9 @@ Here are some test Tips:
 - Set num_val_samples a big number to get the inception score on whole val set.
 - An example command:
 ```
-CUDA_VISIBLE_DEVICES=0 python train.py --path_opt options/vg/paste_gan_vg.yaml --batch_size 1 --resume paste_gan_vg-20190715-110901 --checkpoint_name best --num_val_samples 1000000 --evaluate
+CUDA_VISIBLE_DEVICES=0 python train.py --path_opt options/vg/paste_gan_vg.yaml --batch_size 1 --resume paste_gan_vg-xxxx --checkpoint_name best --num_val_samples 1000000 --evaluate
 ```
 ~~```CUDA_VISIBLE_DEVICES=0 python test.py --path_opt options/vg (or coco)/xxxx.yaml --batch_size 1 --checkpoint_start_from output/xxxx/best_with_model.pt --num_val_samples 1000000```~~
-
 
 
 ## Citation Information
@@ -96,7 +85,7 @@ If you find the project useful, please cite:
 @article{li2019pastegan,
   title={PasteGAN: A Semi-Parametric Method to Generate Image from Scene Graph},
   author={Li, Yikang and Ma, Tao and Bai, Yeqi and Duan, Nan and Wei, Sining and Wang, Xiaogang},
-  journal={arXiv preprint arXiv:1905.01608},
+  journal={NeurIPS 2019},
   year={2019}
 }
 ```
