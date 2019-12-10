@@ -2,7 +2,7 @@
 
 This is a pytorch project for the paper [**PasteGAN: A Semi-Parametric Method to Generate Image from Scene Graph**](https://papers.nips.cc/paper/8650-pastegan-a-semi-parametric-method-to-generate-image-from-scene-graph.pdf) by Yikang Li, Tao Ma, Yeqi Bai, Nan Duan, Sining Wei and Xiaogang Wang presented at **NeurIPS 2019**.
 
-<img src="./images/PasteGAN.pdf" width="900px" height="350px"/>
+<img src="./images/PasteGAN.png" width="900px" height="350px"/>
 
 
 ## Project Outline
@@ -71,10 +71,7 @@ Here are some test Tips:
 - Run the script on 1 GPU and let batch size equal 1.
 - Set num_val_samples a big number to get the inception score on whole val set.
 - An example command:
-```
-CUDA_VISIBLE_DEVICES=0 python train.py --path_opt options/vg/paste_gan_vg.yaml --batch_size 1 --resume paste_gan_vg-xxxx --checkpoint_name best --num_val_samples 1000000 --evaluate
-```
-~~```CUDA_VISIBLE_DEVICES=0 python test.py --path_opt options/vg (or coco)/xxxx.yaml --batch_size 1 --checkpoint_start_from output/xxxx/best_with_model.pt --num_val_samples 1000000```~~
+```CUDA_VISIBLE_DEVICES=0 python test.py --path_opt options/vg (or coco)/xxxx.yaml --batch_size 1 --checkpoint_start_from output/xxxx/best_with_model.pt --num_val_samples 1000000```
 
 
 ## Citation Information
