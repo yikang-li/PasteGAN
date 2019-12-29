@@ -36,8 +36,8 @@ def imagenet_deprocess(rescale_image=True, normalize_method='imagenet'):
         ]
     elif normalize_method == 'standard':
         transforms = [
-            T.Normalize(mean=[0, 0, 0], std=INV_STANDARD_MEAN),
-            T.Normalize(mean=INV_STANDARD_STD, std=[1.0, 1.0, 1.0]),
+            T.Normalize(mean=[0, 0, 0], std=INV_STANDARD_STD),
+            T.Normalize(mean=INV_STANDARD_MEAN, std=[1.0, 1.0, 1.0]),
         ]
     if rescale_image:
         transforms.append(rescale)
