@@ -25,7 +25,7 @@ def get_activation(name):
         if '-' in name:
             slope = float(name.split('-')[1])
             kwargs = {'negative_slope': slope}
-    name = 'leakyrelu'
+            name = 'leakyrelu'
     activations = {
         'relu': nn.ReLU,
         'leakyrelu': nn.LeakyReLU,
