@@ -33,6 +33,9 @@ Here is a list of the notations used in the project:
 
 We only use **canvases_sel** and **canvases_ori** for visualizing the training process.
 
+## DATA
+The DATA used in our project can be downloaded from [here](https://drive.google.com/drive/folders/1zFhIbQo_3_CkHZVs5ZW7DBD6k9fsn1-K?usp=sharing).
+
 ## Project Setup
 
 First install Python 3 (we don't provide support for Python 2). We advise you to install Python 3 and PyTorch with Anaconda:
